@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 32 20% 97%;
+    --foreground: 215 28% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+
+    --primary: 215 28% 17%;
+    --primary-foreground: 32 40% 96%;
+
+    --secondary: 32 30% 92%;
+    --secondary-foreground: 215 28% 17%;
+
+    --muted: 32 20% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 43 74% 66%;
+    --accent-foreground: 215 28% 17%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 32 40% 96%;
+
+    --border: 32 20% 88%;
+    --input: 32 20% 88%;
+    --ring: 43 74% 66%;
+
+    --radius: 0.75rem;
+
+    /* Luxury brand colors */
+    --navy: 215 28% 17%;
+    --gold: 43 74% 66%;
+    --cream: 32 40% 96%;
+    --coastal: 200 68% 48%;
+    
+    /* Gradients */
+    --gradient-luxury: linear-gradient(135deg, hsl(215 28% 17%) 0%, hsl(215 35% 25%) 50%, hsl(200 40% 30%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 66%) 0%, hsl(38 82% 58%) 100%);
+    --gradient-coastal: linear-gradient(135deg, hsl(200 68% 48%) 0%, hsl(195 75% 62%) 100%);
+    
+    /* Shadows */
+    --shadow-luxury: 0 20px 60px -15px hsl(215 28% 17% / 0.3);
+    --shadow-gold: 0 10px 40px -10px hsl(43 74% 66% / 0.4);
+    --shadow-gold-lg: 0 25px 80px -15px hsl(43 74% 66% / 0.5);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 28% 17%;
+    --foreground: 32 40% 96%;
+
+    --card: 215 25% 20%;
+    --card-foreground: 32 40% 96%;
+
+    --popover: 215 25% 20%;
+    --popover-foreground: 32 40% 96%;
+
+    --primary: 32 40% 96%;
+    --primary-foreground: 215 28% 17%;
+
+    --secondary: 215 25% 25%;
+    --secondary-foreground: 32 40% 96%;
+
+    --muted: 215 25% 25%;
+    --muted-foreground: 32 20% 70%;
+
+    --accent: 43 74% 66%;
+    --accent-foreground: 215 28% 17%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 32 40% 96%;
+
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 43 74% 66%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .gradient-luxury {
+    background: var(--gradient-luxury);
+  }
+  
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .gradient-coastal {
+    background: var(--gradient-coastal);
+  }
+  
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-gold-lg {
+    box-shadow: var(--shadow-gold-lg);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-slow {
+    transition: var(--transition-slow);
+  }
+  
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+  
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+  
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+  
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+  
+  /* Professional animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-30px) translateX(15px) scale(1.5);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-60px) translateX(-15px) scale(1.2);
+      opacity: 0.7;
+    }
+    75% {
+      transform: translateY(-30px) translateX(20px) scale(1.3);
+      opacity: 0.75;
+    }
+  }
+  
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0) scale(1) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-20px) scale(1.1) rotate(5deg);
+      opacity: 0.6;
+    }
+  }
+  
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes wave-slow {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes card3d {
+    0%, 100% {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0);
+    }
+    50% {
+      transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(20px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+  
+  .animate-wave {
+    animation: wave 15s linear infinite;
+  }
+  
+  .animate-wave-slow {
+    animation: wave-slow 20s linear infinite;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+}
