@@ -8,6 +8,9 @@ import GokarnaStay from "./pages/GokarnaStay";
 import FinanceServices from "./pages/FinanceServices";
 import ConstructionServices from "./pages/ConstructionServices";
 import NotFound from "./pages/NotFound";
+import BookingPage from "@/pages/BookingPage";
+import "aos/dist/aos.css";
+
 
 const queryClient = new QueryClient();
 
@@ -20,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/gokarna-stay" element={<GokarnaStay />} />
+          <Route path="/booking" element={<BookingPage />} />
           <Route path="/finance-services" element={<FinanceServices />} />
           <Route path="/construction-services" element={<ConstructionServices />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

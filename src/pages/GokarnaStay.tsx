@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Waves, Wifi, Coffee, Mountain } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import ContactSection from "@/components/ContactSection";
@@ -13,20 +13,20 @@ import dormImage from "@/assets/dorm-room.jpg";
 
 const GokarnaStay = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const bg = document.getElementById("hero-bg");
-    if (bg) {
-      bg.style.transform = `translateY(${scrollY * 0.3}px)`; // Parallax speed: 0.3
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const bg = document.getElementById("hero-bg");
+      if (bg) {
+        bg.style.transform = `translateY(${scrollY * 0.3}px)`; // Parallax speed: 0.3
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const features = [
     {
@@ -55,38 +55,35 @@ useEffect(() => {
     <div className="min-h-screen">
       <ScrollSandEffect />
       <Navbar />
-{/* Hero Section */}
-<section className="relative h-[80vh] flex items-center justify-center overflow-hidden mt-16">
-  {/* Animated Sand Particles */}
-  <div className="absolute inset-0 pointer-events-none z-[5]">
-    {[...Array(30)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute w-3 h-3 bg-gold/50 rounded-full animate-float blur-sm"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 4}s`,
-          animationDuration: `${3 + Math.random() * 3}s`,
-        }}
-      />
-    ))}
-  </div>
+      {/* Hero Section */}
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden mt-16">
+        {/* Animated Sand Particles */}
+        <div className="absolute inset-0 pointer-events-none z-[5]">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-3 h-3 bg-gold/50 rounded-full animate-float blur-sm"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 4}s`,
+                animationDuration: `${3 + Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
 
-  {/* Background image with blur + parallax */}
-  <div
-    className="absolute inset-0 bg-cover bg-center scale-105  transition-transform duration-500"
-    style={{
-      backgroundImage: "url('/go.png')",
-      transform: `translateY(0px)`,
-    }}
-    id="hero-bg"
-  >
-    <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" />
-  </div>
-
-
-
+        {/* Background image with blur + parallax */}
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105  transition-transform duration-500"
+          style={{
+            backgroundImage: "url('/go.png')",
+            transform: `translateY(0px)`,
+          }}
+          id="hero-bg"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" />
+        </div>
 
         {/* Animated Wave Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden z-[5]">
@@ -254,13 +251,12 @@ useEffect(() => {
                       </div>
                     </div>
                   </div>
-               <a 
-  href="#contact" 
-  className="block w-full text-center px-6 py-4 bg-yellow-400 text-black font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
->
-  Book Now
-</a>
-
+                  <button 
+                    onClick={() => navigate("/Booking")}
+                    className="block w-full text-center px-6 py-4 bg-yellow-400 text-black font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
 
@@ -328,13 +324,12 @@ useEffect(() => {
                       </div>
                     </div>
                   </div>
-                <a 
-  href="#contact" 
-  className="block w-full text-center px-6 py-4 bg-yellow-400 text-black font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
->
-  Book Now
-</a>
-
+                  <button 
+                    onClick={() => navigate("/Booking")}
+                    className="block w-full text-center px-6 py-4 bg-yellow-400 text-black font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
 
@@ -399,13 +394,12 @@ useEffect(() => {
                       </div>
                     </div>
                   </div>
-               <a 
-  href="#contact" 
-  className="block w-full text-center px-6 py-4 bg-yellow-400 text-black font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
->
-  Book Now
-</a>
-
+                  <button 
+                    onClick={() => navigate("/Booking")}
+                    className="block w-full text-center px-6 py-4 bg-yellow-400 text-black font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
 
@@ -533,12 +527,12 @@ useEffect(() => {
             </div>
 
             <div className="text-center">
-              <a
-                href="#contact"
+              <button
+                onClick={() => navigate("/Booking")}
                 className="inline-block px-10 py-5 bg-gradient-to-r from-gold to-gold/80 text-navy font-bold text-lg rounded-xl hover:shadow-2xl transition-all hover:scale-105"
               >
                 Book Your Stay Now
-              </a>
+              </button>
             </div>
           </div>
         </div>

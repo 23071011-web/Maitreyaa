@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
        // ✅ allow your Cloudflare tunnel
       "localhost",
       "127.0.0.1",
+
     ],
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
