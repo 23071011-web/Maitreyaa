@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import BookingPage from "@/pages/BookingPage";
 import "aos/dist/aos.css";
 
-
+import RoomDetails from "./pages/RoomDetails";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +26,7 @@ const App = () => (
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/finance-services" element={<FinanceServices />} />
           <Route path="/construction-services" element={<ConstructionServices />} />
+           <Route path="/room/:id" element={<RoomDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
