@@ -48,7 +48,7 @@ const Index = () => {
             />
             <BusinessCard
               title="Way to upgrade your financial needs"
-              description="Comprehensive financial consulting and wealth management solutions. Expert guidance for personal investments, business finance, and strategic financial planning."
+              description="Assessment financial consulting and wealth management solutions. Expert guidance for personal investments, business finance, and strategic financial planning."
               image={businessTwoImage}
               link="/finance-services"
               gradient="gradient-luxury"

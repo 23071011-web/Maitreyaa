@@ -117,11 +117,11 @@ const GokarnaStay = () => {
       image: tentImage,
       description:
         "Immerse yourself in nature with our luxury tented stays — a blend of comfort and adventure. Designed with premium mattress, bedside lighting, locking storage and private patio.",
-      price: "₹2,999 / Night",
+      price: "₹500  / Night",
       features: "Ocean View • Bonfire • Private Patio • Cozy Setup",
       labels: [
-        { label: "Standard", price: "₹2,999" },
-        { label: "With Breakfast", price: "₹3,499" },
+        { label: "Standard", price: "₹550" },
+        { label: "With Breakfast", price: "₹700" },
       ],
       tag: "Beachside Bliss",
     },
@@ -131,11 +131,11 @@ const GokarnaStay = () => {
       image: acRoomImage,
       description:
         "Enjoy coastal elegance and modern comfort in our air-conditioned rooms with premium linen, en-suite bathroom and balcony views.",
-      price: "₹4,499 / Night",
+      price: "₹4,000 / Night",
       features: "Air Conditioning • Premium Bedding • Balcony View",
       labels: [
-        { label: "Standard", price: "₹2,500" },
-        { label: "With Breakfast", price: "₹3,000" },
+        { label: "Standard", price: "₹4,000" },
+        { label: "With Breakfast", price: "₹5,500" },
       ],
       tag: "Most Popular",
       tag2: "Air Conditioned",
@@ -146,11 +146,11 @@ const GokarnaStay = () => {
       image: nonAcRoomImage,
       description:
         "A simple yet cozy stay option for travelers seeking peace and authenticity with natural ventilation and earthy design touches.",
-      price: "₹3,199 / Night",
+      price: "₹2,500 / Night",
       features: "Natural Ventilation • Ceiling Fan • Eco-Friendly",
       labels: [
-        { label: "Standard", price: "₹2,000" },
-        { label: "With Breakfast", price: "₹2,500" },
+        { label: "Standard", price: "₹2,500" },
+        { label: "With Breakfast", price: "₹4,000" },
       ],
       tag: "Natural Breeze",
     },

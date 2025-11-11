@@ -32,10 +32,8 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Validate form data
       const validatedData = contactSchema.parse(formData);
 
-      // Insert into database - handle optional phone field
       const dataToInsert = {
         name: validatedData.name,
         email: validatedData.email,
@@ -44,7 +42,6 @@ const ContactSection = () => {
         ...(validatedData.phone && { phone: validatedData.phone }),
       };
 
-      // @ts-ignore - Type will be regenerated after migration
       const { error } = await supabase
         .from("contact_inquiries")
         .insert([dataToInsert]);
@@ -53,10 +50,9 @@ const ContactSection = () => {
 
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        description: "We'll get back to you shortly.",
       });
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -84,128 +80,120 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-cream">
-      <div className="container mx-auto px-4">
+    <section
+      id="contact"
+      className="relative py-24 bg-gradient-to-br from-cream via-white to-gold/10 overflow-hidden"
+    >
+      {/* Decorative gradient shapes */}
+      <div className="absolute top-0 left-0 w-40 h-40 bg-gold/20 blur-3xl rounded-full animate-pulse-slow"></div>
+      <div className="absolute bottom-0 right-0 w-60 h-60 bg-navy/10 blur-3xl rounded-full animate-pulse-slow"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-4">
+          <div className="text-center mb-16 animate-fade-up">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-4 tracking-tight">
               Get in Touch
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Let us help you plan your perfect experience with Maitreya
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Let us help you plan your perfect experience with <span className="font-semibold text-gold">Maitreya</span>.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="space-y-8 animate-fade-in">
-              <div className="flex items-start space-x-4">
-                <div className="bg-gold/10 p-3 rounded-lg">
-                  <MapPin className="text-gold" size={24} />
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Contact Info */}
+            <div className="space-y-10 animate-fade-up">
+              <div className="flex items-start space-x-5 hover:translate-x-1 transition-transform duration-300">
+                <div className="bg-gold/15 p-3 rounded-xl">
+                  <MapPin className="text-gold" size={26} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-2">Visit Us</h3>
+                  <h3 className="font-semibold text-navy mb-1 text-lg">Visit Us</h3>
                   <p className="text-muted-foreground">
-                    Bangalore ,(Karnataka)
-                    Postalcode: 560090
+                    Bangalore, Karnataka <br /> Postal Code: 560090
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-gold/10 p-3 rounded-lg">
-                  <Mail className="text-gold" size={24} />
+              <div className="flex items-start space-x-5 hover:translate-x-1 transition-transform duration-300">
+                <div className="bg-gold/15 p-3 rounded-xl">
+                  <Mail className="text-gold" size={26} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-2">Email Us</h3>
-                  <p className="text-muted-foreground">
-                    hello@maitreya.ind.in
-                  </p>
+                  <h3 className="font-semibold text-navy mb-1 text-lg">Email Us</h3>
+                  <p className="text-muted-foreground">hello@maitreya.ind.in</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-gold/10 p-3 rounded-lg">
-                  <Phone className="text-gold" size={24} />
+              <div className="flex items-start space-x-5 hover:translate-x-1 transition-transform duration-300">
+                <div className="bg-gold/15 p-3 rounded-xl">
+                  <Phone className="text-gold" size={26} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-2">Call Us</h3>
-                  <p className="text-muted-foreground">+91 87224 68233</p>
+                  <h3 className="font-semibold text-navy mb-1 text-lg">Call Us</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    +91 87224 68233 <br /> +91 77959 96542
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
-              <div>
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  required
-                  className="border-gold/30 focus:border-gold"
-                />
-              </div>
-              <div>
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                  className="border-gold/30 focus:border-gold"
-                />
-              </div>
-              <div>
-                <Input
-                  type="tel"
-                  placeholder="Phone Number (Optional)"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                  className="border-gold/30 focus:border-gold"
-                />
-              </div>
-              <div>
-                <select
-               
-  value={formData.business}
-  onChange={(e) =>
-    setFormData({ ...formData, business: e.target.value })
-  }
-  required
-  aria-label="Select Business"
-  className="w-full px-3 py-2 border border-gold/30 rounded-md focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
->
-  <option value="">Select Business</option>
-  <option value="Gokarna Stay">Gokarna Stay</option>
-  <option value="Maitreya Finance">Maitreya Finance</option>
-  <option value="Maitreya Construction">Maitreya Construction</option>
-  <option value="General Inquiry">General Inquiry</option>
-</select>
+            <form
+              onSubmit={handleSubmit}
+              className="backdrop-blur-md bg-white/70 border border-gold/30 p-8 rounded-2xl shadow-xl space-y-6 animate-fade-up"
+            >
+              <Input
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                className="border-gold/30 focus:border-gold focus:ring-2 focus:ring-gold/50"
+              />
 
-              </div>
-              <div>
-                <Textarea
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  required
-                  rows={5}
-                  className="border-gold/30 focus:border-gold resize-none"
-                />
-              </div>
+              <Input
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                className="border-gold/30 focus:border-gold focus:ring-2 focus:ring-gold/50"
+              />
+
+              <Input
+                type="tel"
+                placeholder="Phone Number (Optional)"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="border-gold/30 focus:border-gold focus:ring-2 focus:ring-gold/50"
+              />
+
+              <select
+                value={formData.business}
+                onChange={(e) => setFormData({ ...formData, business: e.target.value })}
+                required
+                aria-label="Select Business"
+                className="w-full px-3 py-2 border border-gold/30 rounded-md bg-white text-gray-800 focus:border-gold focus:ring-2 focus:ring-gold/50 transition-all"
+              >
+                <option value="">Select Requirement</option>
+                <option value="Gokarna Stay">Hostel Stay</option>
+                <option value="Maitreya Finance">Maitreya Finance</option>
+                <option value="Maitreya Construction">Maitreya Realities and Equities</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+
+              <Textarea
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                required
+                rows={5}
+                className="border-gold/30 focus:border-gold focus:ring-2 focus:ring-gold/50 resize-none"
+              />
+
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gold text-navy hover:bg-gold/90 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gold text-navy font-semibold hover:bg-gold/90 transition-all rounded-xl py-3 disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>

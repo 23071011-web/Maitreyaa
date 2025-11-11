@@ -39,12 +39,7 @@ const FinanceServices = () => {
       description:
         "Strategic investment solutions designed to grow your wealth and achieve long-term financial goals.",
     },
-    {
-      icon: Shield,
-      title: "Risk Management",
-      description:
-        "Protect your assets with comprehensive risk assessment and insurance planning strategies.",
-    },
+   
     {
       icon: PiggyBank,
       title: "Retirement Planning",
@@ -65,7 +60,7 @@ const FinanceServices = () => {
     },
     {
       icon: Award,
-      title: "Wealth Advisory",
+      title: "Wealth Management and Borrowing",
       description:
         "Personalized wealth management advice for high-net-worth individuals and families.",
     },
@@ -230,7 +225,7 @@ const FinanceServices = () => {
             </h2>
             <div className="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent mb-8" />
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Comprehensive financial solutions tailored to your unique goals
+              Financial  assessment solutions tailored to your unique goals
               and aspirations
             </p>
           </div>
