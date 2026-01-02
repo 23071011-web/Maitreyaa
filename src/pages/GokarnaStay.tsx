@@ -739,3 +739,6 @@ const GokarnaStay = () => {
 };
 
 export default GokarnaStay;
+
+
+# AI edit: change ui and add new feature 

@@ -115,3 +115,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+# AI edit: change ui and add new feature 

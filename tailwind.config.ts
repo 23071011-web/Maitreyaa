@@ -135,3 +135,6 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
+
+# AI edit: change ui and add new feature 

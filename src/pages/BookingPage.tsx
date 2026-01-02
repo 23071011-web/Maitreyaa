@@ -630,3 +630,6 @@ const BookingPage = () => {
 };
 
 export default BookingPage;
+
+
+# AI edit: change ui and add new feature 

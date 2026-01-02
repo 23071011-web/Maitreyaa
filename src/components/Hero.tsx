@@ -135,3 +135,6 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+# AI edit: change ui and add new feature 

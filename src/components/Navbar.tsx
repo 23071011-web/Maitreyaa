@@ -208,3 +208,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+# AI edit: change ui and add new feature 
